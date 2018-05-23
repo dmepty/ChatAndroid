@@ -25,32 +25,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button = findViewById(R.id.ButtonSend);
 
-        //Событие добавления записи в базу
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myRef.setValue("Hello world");
-            }
-        });
-
-        // Чтение с базы
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                String value = dataSnapshot.getValue(String.class);
-                Log.d(getClass().getName(), "Value is " + value);
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-
-
-            }
-        });
     }
 }
